@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container mt-4">
+    <h1>Calculator</h1>
+    <div class="row">
+      <div class="col-sm-4 offset-sm-4">
+        <input type="text" id="result" class="form-control mb-3" readonly>
+        <table class="table table-bordered">
+          <tr>
+            <td><button onclick="appendNumber('7')" class="btn btn-primary btn-block">7</button></td>
+            <td><button onclick="appendNumber('8')" class="btn btn-primary btn-block">8</button></td>
+            <td><button onclick="appendNumber('9')" class="btn btn-primary btn-block">9</button></td>
+            <td><button onclick="appendOperator('+')" class="btn btn-info btn-block">+</button></td>
+          </tr>
+          <tr>
+            <td><button onclick="appendNumber('4')" class="btn btn-primary btn-block">4</button></td>
+            <td><button onclick="appendNumber('5')" class="btn btn-primary btn-block">5</button></td>
+            <td><button onclick="appendNumber('6')" class="btn btn-primary btn-block">6</button></td>
+            <td><button onclick="appendOperator('-')" class="btn btn-info btn-block">-</button></td>
+          </tr>
+          <tr>
+            <td><button onclick="appendNumber('1')" class="btn btn-primary btn-block">1</button></td>
+            <td><button onclick="appendNumber('2')" class="btn btn-primary btn-block">2</button></td>
+            <td><button onclick="appendNumber('3')" class="btn btn-primary btn-block">3</button></td>
+            <td><button onclick="appendOperator('*')" class="btn btn-info btn-block">*</button></td>
+          </tr>
+          <tr>
+            <td><button onclick="appendNumber('0')" class="btn btn-primary btn-block">0</button></td>
+            <td><button onclick="appendOperator('.')" class="btn btn-primary btn-block">.</button></td>
+            <td><button onclick="clearResult()" class="btn btn-danger btn-block">C</button></td>
+            <td><button onclick="calculate()" class="btn btn-success btn-block">=</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function appendNumber(number) {
+      document.getElementById('result').value += number;
+    }
+
+    function appendOperator(operator) {
+      document.getElementById('result').value += operator;
+    }
+
+    function clearResult() {
+      document.getElementById('result').value = '';
+    }
+
+    function calculate() {
+      const expression = document.getElementById('result').value;
+      const result = eval(expression);
+      document.getElementById('result').value = result;
+    }
+  </script>
+</body>
+</html>
